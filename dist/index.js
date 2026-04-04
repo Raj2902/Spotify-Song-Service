@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import songRoutes from "./route.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import redis from "redis";
+import cors from "cors";
 dotenv.config();
 export const redisClient = redis.createClient({
     password: process.env.REDIS_PASS,
@@ -18,6 +19,7 @@ redisClient
 })
     .catch(console.error);
 const app = express();
+app.use(cors());
 app.use("/api/v1", songRoutes);
 app.use(errorHandler);
 const port = process.env.PORT;
