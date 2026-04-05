@@ -26,7 +26,11 @@ const app = express();
 
 app.use(cors());
 
-app.use("/api/v1", songRoutes);
+app.use("/api/v1/song", songRoutes);
+
+app.get("/", (req, res) => {
+  res.send("Song service is running");
+});
 
 app.use(errorHandler);
 
