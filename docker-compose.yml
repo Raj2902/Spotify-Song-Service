@@ -1,0 +1,9 @@
+services:
+  song:
+    build: .
+    deploy:
+      replicas: 4
+    env_file:
+      - .env
+    ports:
+      - "8000-8003:8000"
