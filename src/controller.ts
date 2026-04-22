@@ -2,7 +2,7 @@ import { asyncHandler } from "./middleware/asyncHandler.js";
 import type { Request, Response } from "express";
 import { sql } from "./config/db.js";
 import { AppError } from "./utils/AppError.js";
-import { redisClient } from "./index.js";
+import { redisClient } from "./config/redis.js";
 
 export const getAllAlbums = asyncHandler(
   async (req: Request, res: Response) => {
